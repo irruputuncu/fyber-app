@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-
   # Rspec for testing
   gem 'rspec-rails', '~> 3.4'
 
@@ -33,4 +32,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Handling of environemnt variables
+  gem 'dotenv-rails'
 end

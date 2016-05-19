@@ -34,5 +34,5 @@ group :development, :test do
   gem 'spring'
 
   # Handling of environemnt variables
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', github: "bkeepers/dotenv"
 end

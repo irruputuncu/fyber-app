@@ -1,0 +1,13 @@
+<h1> Fyber - Offers </h1>
+
+
+<h3> Search for Mobile Offers </h3>
+<%= form_tag offers_search_path, remote: true do %>
+  <%= text_field_tag :user_id, nil, placeholder: 'User ID' %>
+  <%= text_field_tag :pub0, nil, placeholder: 'Custom Parameters' %>
+  <%= text_field_tag :page, 1, placeholder: 'Page' %>
+
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<div id="results"></div>

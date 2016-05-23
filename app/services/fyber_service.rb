@@ -4,7 +4,7 @@ require 'json'
 
 class FyberService
 
-  def orders(user_id, custom, page)
+  def offers(user_id, custom, page)
     parameter_string = {
       appid: ENV['FYBER_APP_ID'],
       device_id: ENV['FYBER_DEVICE_ID'],
@@ -17,12 +17,17 @@ class FyberService
       page: page
     }.sort_by{|key, value| key}.map{|key, value| "#{key}=#{value}"}.join '&'
 
-    uri = "#{ENV['FYBER_OFFER_API_URL']}?#{parameter_string}&hashkey=#{hashkey(parameter_string)}"
+    hashkey = Digest::SHA1.hexdigest "#{parameter_string}&#{ENV['FYBER_API_KEY']}"
 
-    JSON.parse open(uri).read
-  end
+    uri = "#{ENV['FYBER_OFFER_API_URL']}?#{parameter_string}&hashkey=#{hashkey}"
 
-  def hashkey(parameter_string)
-    Digest::SHA1.hexdigest "#{parameter_string}&#{ENV['FYBER_API_KEY']}"
+    response = open(uri)
+    response_body = response.read
+
+    if response.meta["x-sponsorpay-response-signature"] === Digest::SHA1.hexdigest(response_body + ENV['FYBER_API_KEY'])
+      return JSON.parse(response_body)['offers']
+    else
+      raise 'Invalid Response Error'
+    end
   end
 end

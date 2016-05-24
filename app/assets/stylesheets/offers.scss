@@ -1,3 +1,14 @@
-// Place all the styles related to the offers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.offer {
+  margin: 20px;
+
+  .image-column {
+    width: 80px;
+    float: left;
+  }
+  .info-column {
+    width: calc(100% - 80px);
+    min-width: 250px;
+    float: left;
+    font-size: 17px;
+  }
+}

@@ -1,13 +1,34 @@
-<h1> Fyber - Offers </h1>
+<div class="container">
+  <h1> Fyber - Mobile Offer API </h1>
 
+  <section>
+    <h3> Search for Mobile Offers </h3>
+    <%= form_tag offers_search_path, remote: true, class: 'offer-form' do %>
 
-<h3> Search for Mobile Offers </h3>
-<%= form_tag offers_search_path, remote: true do %>
-  <%= text_field_tag :user_id, nil, placeholder: 'User ID' %>
-  <%= text_field_tag :pub0, nil, placeholder: 'Custom Parameters' %>
-  <%= text_field_tag :page, 1, placeholder: 'Page' %>
+      <div class="input-group">
+        <div class="label"> User ID </div>
+        <%= text_field_tag :user_id, nil, placeholder: 'User ID' %>
+      </div>
 
-  <%= submit_tag 'Search' %>
-<% end %>
+      <div class="input-group">
+        <div class="label"> Custom Paramter </div>
+        <%= text_field_tag :pub0, nil, placeholder: 'Custom Parameter' %>
+      </div>
 
-<div id="results"></div>
+      <div class="input-group">
+        <div class="label"> Page </div>
+        <%= text_field_tag :page, 1, placeholder: 'Page' %>
+      </div>
+      <br>
+
+      <%= submit_tag 'Get Offers', class: 'btn' %>
+    <% end %>
+  </section>
+
+  <section>
+    <h2>Offers</h2>
+    <div id="results">
+     Use the form above to look up offers.
+    </div>
+  </section>
+</div>

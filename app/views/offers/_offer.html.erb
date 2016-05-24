@@ -1,1 +1,9 @@
-<%= offer.inspect %>
+<div class="offer">
+  <div class="image-column">
+    <%= image_tag offer['thumbnail']['lowres'], width: '60px' %>
+  </div>
+  <div class="info-column">
+    <p><%= offer['title'] %> (<%= offer['payout'] %> Points)</p>
+  </div>
+  <div class="clearfix"></div>
+</div>

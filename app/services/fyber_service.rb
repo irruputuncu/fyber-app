@@ -25,7 +25,7 @@ class FyberService
     response_body = response.read
 
     if response.meta["x-sponsorpay-response-signature"] === Digest::SHA1.hexdigest(response_body + ENV['FYBER_API_KEY'])
-      return JSON.parse(response_body)['offers']
+      return JSON.parse(response_body)
     else
       raise 'Invalid Response Error'
     end

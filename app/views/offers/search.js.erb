@@ -1,2 +1,8 @@
 $('.error').remove();
-$('#results').html('<%= j render(partial: "offer", collection: @offers) || "There are no products available." %>')
+<% if @offers and @offers.any? %>
+  $('#results').html('<%= j render(partial: "offer", collection: @offers) %>');
+  $('#page-indicator').html('Page <%= @page %> of <%= @pages %>');
+<% else %>
+  $('#results').html('There are no offers available.');
+  $('#page-indicator').html('');
+<% end %>

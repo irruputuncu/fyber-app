@@ -11,7 +11,11 @@ class OffersController < ApplicationController
       return
     end
 
-    @offers = FyberService.new.offers(params[:user_id], params[:pub0], params[:page])
+    fyber_response = FyberService.new.offers(params[:user_id], params[:pub0], params[:page])
+    @offers = fyber_response['offers']
+
+    @page = params[:page]
+    @pages = fyber_response['pages']
 
     respond_to do |format|
       format.js

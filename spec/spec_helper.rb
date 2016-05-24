@@ -15,6 +15,9 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
+
+require 'webmock/rspec'
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -38,6 +41,18 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  # Webmock configuration for stubbed APIs
+  WebMock.disable_net_connect!(allow_localhost: true)
+
+  config.before(:each) do
+    example_response = File.read(File.join("spec", "fixtures", "example.json"))
+    stub_request(:get, /.*#{ENV['FYBER_OFFER_API_URL']}.*/).
+      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+      to_return(status: 200, body: example_response, headers: {
+        'X-Sponsorpay-Response-Signature' => Digest::SHA1.hexdigest(example_response + ENV['FYBER_API_KEY'])
+        })
   end
 
 # The settings below are suggested to provide a good initial experience

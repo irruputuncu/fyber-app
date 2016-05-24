@@ -1,0 +1,71 @@
+{
+  "code": "OK",
+  "message": "Ok",
+  "count": 30,
+  "pages": 2,
+  "information": {
+    "app_name": "Demo iframe for publisher - do not touch",
+    "appid": 157,
+    "virtual_currency": "Coins",
+    "virtual_currency_sale_enabled": false,
+    "country": "DE",
+    "language": "DE",
+    "support_url": "http://offer.fyber.com/mobile/support"
+  },
+  "offers": [
+    {
+      "title": "Deutsche Telekom Sportsommer",
+      "offer_id": 977081,
+      "teaser": "Registriere dich mit korrekten Daten.",
+      "required_actions": "Registriere dich mit korrekten Daten.",
+      "link": "http://offer.fyber.com/mobile",
+      "offer_types": [
+        {
+          "offer_type_id": 105,
+          "readable": "Registrierung"
+        },
+        {
+          "offer_type_id": 112,
+          "readable": "Gratis"
+        }
+      ],
+      "payout": 96335,
+      "time_to_payout": {
+        "amount": 600,
+        "readable": "10 Minuten"
+      },
+      "thumbnail": {
+        "lowres": "http://cdn1.sponsorpay.com/assets/63769/Screen_Shot_2016-04-29_at_1.12.20_PM_square_60.png",
+        "hires": "http://cdn1.sponsorpay.com/assets/63769/Screen_Shot_2016-04-29_at_1.12.20_PM_square_175.png"
+      },
+      "store_id": ""
+    },
+    {
+      "title": "Netto Supermarket Sweepstakes",
+      "offer_id": 959163,
+      "teaser": "Take a quick Survey and get exclusive offers.",
+      "required_actions": "Take a quick Survey and get exclusive offers.",
+      "link": "http://offer.fyber.com/mobile",
+      "offer_types": [
+        {
+          "offer_type_id": 105,
+          "readable": "Registrierung"
+        },
+        {
+          "offer_type_id": 112,
+          "readable": "Gratis"
+        }
+      ],
+      "payout": 137622,
+      "time_to_payout": {
+        "amount": 9900,
+        "readable": "3 hours"
+      },
+      "thumbnail": {
+        "lowres": "http://cdn4.sponsorpay.com/assets/63495/Screen_Shot_2016-04-07_at_3.52.36_PM_square_60.png",
+        "hires": "http://cdn4.sponsorpay.com/assets/63495/Screen_Shot_2016-04-07_at_3.52.36_PM_square_175.png"
+      },
+      "store_id": ""
+    }
+  ]
+}

@@ -1,29 +1,31 @@
-<div class="container">
+<div class="navbar">
   <h1> Fyber - Mobile Offer API </h1>
+</div>
+
+<div class="container">
 
   <section id="offer-form">
     <h3> Search for Mobile Offers </h3>
     <%= form_tag offers_search_path, remote: true, class: 'offer-form' do %>
+      <%= hidden_field_tag :page, 1 %>
 
       <div class="input-group">
-        <div class="label"> User ID* </div>
-        <%= text_field_tag :user_id, nil, placeholder: 'User ID' %>
+        <div class="label"> User ID: </div>
+        <%= text_field_tag :uid, nil, placeholder: 'User ID' %>
       </div>
 
       <div class="input-group">
-        <div class="label"> Custom Paramter </div>
+        <div class="label"> Campaign: </div>
         <%= text_field_tag :pub0, nil, placeholder: 'Custom Parameter' %>
       </div>
-
-      <div class="input-group">
-        <div class="label"> Page </div>
-        <%= text_field_tag :page, 1, placeholder: 'Page' %>
-      </div>
-      <br>
 
       <%= submit_tag 'Get Offers', class: 'btn' %>
     <% end %>
   </section>
+
+  <div class="borderbar">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
 
   <section>
     <h2>Offers</h2>

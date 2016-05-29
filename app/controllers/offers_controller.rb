@@ -4,21 +4,27 @@ class OffersController < ApplicationController
   end
 
   def search
-    if params[:user_id].blank?
+    if params[:uid].blank?
       respond_to do |format|
         format.js {render 'failure'}
       end
       return
     end
 
-    fyber_response = FyberService.new.offers(params[:user_id], params[:pub0], params[:page])
-    @offers = fyber_response['offers']
+    fyber_response = FyberService.new.get_offers(search_params)
 
-    @page = params[:page]
+    @offers = fyber_response['offers']
     @pages = fyber_response['pages']
+    @page = params[:page].to_i || 1
 
     respond_to do |format|
       format.js
     end
   end
+
+  private
+
+    def search_params
+      params.permit(:uid, :pub0, :page)
+    end
 end

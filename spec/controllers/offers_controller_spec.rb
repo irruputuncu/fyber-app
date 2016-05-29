@@ -12,7 +12,7 @@ RSpec.describe OffersController, type: :controller do
   describe 'POST #search' do
     context 'with valid paramters' do
       it 'returns matching offers' do
-        post :search, { user_id: 'player1', pub0: 'campaign2', page: 1, format: :js}
+        post :search, { uid: 'player1', pub0: 'campaign2', page: 1, format: :js}
         expect(response).to render_template(:search)
       end
     end

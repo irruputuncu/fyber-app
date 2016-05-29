@@ -1,0 +1,21 @@
+<div class="pagination">
+  <% if @page === 1 %>
+    <
+  <% else %>
+    <a href="#" class="pagination-link" data-page="1"><</a>
+  <% end %>
+
+  <% 1.upto(@pages) do |index| %>
+    <% if index === @page %>
+      <%= index %>
+    <% else %>
+      <a href="#" class="pagination-link" data-page="<%= index %>"><%= index %></a>
+    <% end %>
+  <% end %>
+
+  <% if @page === @pages %>
+    >
+  <% else %>
+    <a href="#" class="pagination-link" data-page="<%= @pages %>">></a>
+  <% end  %>
+</div>
